@@ -306,13 +306,16 @@ Use `.gitignore`.
 
 ---
 
-# 👤 Author
+# 👥 Contributors
 
-**Kulin Mathur**
+| Name | GitHub |
+|------|--------|
+| Kulin Mathur | [@kulin](https://github.com/kulin-m) |
+| Ishant Shekhar | [@ishant212](https://github.com/ishant212) |
+| Lakshya Kumar Singh | [@lakshya](https://github.com/X-ImLucky-X) |
 
-GitHub:
 
-https://github.com/kulin-m
+---
 
 ---
 
