@@ -1,7 +1,8 @@
-# 🔐 Secure Cloud 
+# 🔐 Secure Cloud 3.0
 
-> End-to-end encrypted cloud storage powered by FastAPI, React, and Google Drive.  
-> Encrypt locally • Store securely • Access anywhere
+> End-to-End Encrypted Cloud Storage using FastAPI, React, Express, and Google Drive
+
+Encrypt files locally • Upload securely • Download safely • Store privately
 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue?style=flat-square&logo=python)
 ![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green?style=flat-square&logo=fastapi)
@@ -13,120 +14,134 @@
 
 # 📖 Overview
 
-Secure Cloud 2.0 is an encrypted cloud storage platform designed to ensure files remain private before they ever leave the user’s device.
+Secure Cloud 3.0 is an encrypted cloud storage platform built to ensure files remain protected before they ever leave the user’s device.
 
-Every uploaded file is encrypted locally using **AES-GCM (256-bit authenticated encryption)**. Only encrypted ciphertext is stored in Google Drive.
+Files are encrypted using **AES-GCM encryption** and uploaded as encrypted data into **Google Drive**.
 
 When downloading:
 
-1. File is retrieved from Google Drive
-2. Ciphertext is decrypted
-3. Original filename and MIME type are restored
+- Retrieve encrypted file
+- Decrypt securely
+- Restore original filename
+- Restore original MIME type
 
-The project focuses on delivering **practical security with minimal architecture complexity**.
+Google Drive acts only as encrypted storage.
 
 ---
 
-# ✨ Key Features
+# ✨ Features
 
-## 🔒 Encryption Layer
+## 🔒 Encryption
 
 - AES-GCM authenticated encryption
-- 256-bit encryption support
-- Integrity verification during decryption
-- Random nonce generated per upload
-- Metadata protected inside encrypted payload
+- 256-bit secure encryption
+- Random nonce generation
+- Integrity verification
+- Secure file restoration
 
-Encrypted payload includes:
+Metadata encrypted:
 
 ```text
-filename ||SPLIT|| mime_type ||SPLIT|| file_data
+filename || mime_type || file_data
 ```
 
-No plaintext metadata is exposed.
+No plaintext file information is exposed.
 
 ---
 
 ## ☁️ Cloud Storage
 
-- Upload encrypted blobs to Google Drive
-- Preserve original filename internally
-- Download and automatically restore content
-- Drive acts only as encrypted storage
+- Upload encrypted files
+- Store in Google Drive
+- Download and decrypt
+- Preserve original structure
 
 ---
 
 ## 🔑 Authentication
 
-- OAuth 2.0 authentication
+- OAuth 2.0 Login
 - No password storage
-- Automatic token refresh
-- Session persistence via `token.pickle`
+- Token reuse
+- Automatic refresh
 
 ---
 
-## 🔄 API & Proxy Architecture
-
-Backend responsibilities:
-
-- Encryption
-- Decryption
-- Upload handling
-- Download handling
-
-Proxy responsibilities:
-
-- CORS management
-- Browser communication
-- Header forwarding
-
-Frontend responsibilities:
-
-- File selection
-- Upload interface
-- Download actions
-
----
-
-# 🗂 Project Structure
+## ⚡ API Architecture
 
 ```text
-secure-cloud-2.0/
+Frontend (React)
+       ↓
+Express Proxy
+       ↓
+FastAPI Backend
+       ↓
+AES Encryption
+       ↓
+Google Drive
+```
+
+---
+
+# 📸 Project Screenshots
+
+## Home Page
+
+![Home](assets/home.png)
+
+---
+
+## Secure Upload
+
+![Upload](assets/upload.png)
+
+---
+
+## Google Drive Storage
+
+![Drive](assets/drive.png)
+
+---
+
+## Download Page
+
+![Download](assets/download.png)
+
+---
+
+# 🗂 Folder Structure
+
+```text
+secure-cloud-3.0/
 │
 ├── backend/
 │   ├── encryption/
+│   │   ├── __init__.py
 │   │   └── crypto.py
-│   │       # AES-GCM encryption logic
+│   │
+│   ├── models/
 │   │
 │   ├── storage/
-│   │   └── cloud.py
-│   │       # Google Drive integration
 │   │
+│   ├── __init__.py
 │   └── main.py
-│       # FastAPI API routes
 │
 ├── frontend/
-│   ├── public/
-│   │
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── services/
-│   │   ├── App.jsx
-│   │   └── main.jsx
-│   │
-│   └── package.json
 │
 ├── server/
 │   ├── index.js
-│   │   # Express proxy
-│   │
 │   └── package.json
 │
-├── .env.example
-├── .gitignore
+├── assets/
+│   ├── home.png
+│   ├── upload.png
+│   ├── drive.png
+│   └── download.png
+│
 ├── README.md
-└── requirements.txt
+├── requirements.txt
+├── vercel.json
+└── .gitignore
 ```
 
 ---
@@ -134,34 +149,25 @@ secure-cloud-2.0/
 # 🛠 Technology Stack
 
 | Technology | Purpose |
-|------------|---------|
-| React + Vite | Frontend |
-| Tailwind CSS | UI Styling |
-| FastAPI | Backend API |
-| PyCryptodome | Encryption |
-| Express.js | Proxy Server |
-| Google Drive API | Cloud Storage |
+|-----------|---------|
+| React | Frontend |
+| FastAPI | Backend |
+| Express | Proxy |
+| Python | Encryption |
+| PyCryptodome | AES |
+| Google Drive API | Storage |
 | OAuth 2.0 | Authentication |
 
 ---
 
-# 🚀 Local Setup
-
-## Requirements
-
-- Python 3.8+
-- Node.js 16+
-- Google Cloud Project
-- Google Drive API enabled
-
----
+# 🚀 Installation
 
 ## Clone Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/secure-cloud-2.0.git
+git clone https://github.com/kulin-m/Secure_Cloud_Storage.git
 
-cd secure-cloud-2.0
+cd Secure_Cloud_Storage
 ```
 
 ---
@@ -169,68 +175,71 @@ cd secure-cloud-2.0
 ## Install Backend
 
 ```bash
-pip install \
-fastapi \
-uvicorn \
-pycryptodome \
-google-api-python-client \
-google-auth \
-google-auth-oauthlib \
-google-auth-httplib2 \
-python-dotenv \
-python-multipart
+pip install -r requirements.txt
 ```
 
 ---
 
-## Configure Environment
-
-```bash
-cp .env.example .env
-```
-
-Update:
-
-```env
-AES_KEY=
-FOLDER_ID=
-```
-
----
-
-## Start Proxy
-
-```bash
-cd server
-
-npm install
-
-node index.js
-```
-
----
-
-## Start Backend
-
-```bash
-uvicorn backend.main:app --reload
-```
-
----
-
-## Start Frontend
+## Install Frontend
 
 ```bash
 cd frontend
 
 npm install
+```
 
+---
+
+## Install Server
+
+```bash
+cd ../server
+
+npm install
+```
+
+---
+
+# 🔑 Environment Variables
+
+Create:
+
+```text
+.env
+```
+
+Add:
+
+```env
+AES_KEY=your_aes_key
+FOLDER_ID=your_drive_folder_id
+```
+
+---
+
+# ▶ Run Application
+
+Start backend:
+
+```bash
+uvicorn backend.main:app --reload
+```
+
+Start server:
+
+```bash
+node server/index.js
+```
+
+Start frontend:
+
+```bash
 npm run dev
 ```
 
 ---
 
-# 🌐 Services
+# 🌐 Local URLs
 
 | Service | URL |
 |---------|-----|
@@ -243,70 +252,68 @@ npm run dev
 # 🔐 Encryption Workflow
 
 ```text
-User File
+Choose File
    ↓
-AES-GCM Encrypt
-   ↓
-Bundle Metadata
+Encrypt File
    ↓
 Generate Ciphertext
    ↓
 Upload to Drive
    ↓
-Download
+Retrieve File
    ↓
 Decrypt
    ↓
-Restore Original File
+Download
 ```
 
 ---
 
-# ⚠️ Limitations
+# ⚠️ Security Notes
 
-- Single-user architecture
-- No key rotation
-- Flat storage structure
-- Local OAuth token storage
-
----
-
-# 🛡 Security Checklist
-
-Before pushing:
+Never upload:
 
 ```text
 credentials.json
+cryptography-proj-*.json
 token.pickle
 .env
-cryptography-proj-*.json
+node_modules
+server.log
 ```
 
-Never commit these files.
-
-Rotate credentials immediately if leaked.
+Use `.gitignore`.
 
 ---
 
-# 🔮 Future Scope
+# 🛡 Limitations
+
+- Single-user support
+- No key rotation
+- Local OAuth storage
+- Flat cloud structure
+
+---
+
+# 🔮 Future Improvements
 
 - Multi-user support
 - AWS S3 integration
-- Dropbox integration
-- Shareable encrypted links
-- Client-side preview
-- Large file chunking
-- Deployment automation
+- File sharing
+- Preview support
+- Large file uploads
+- Deployment pipeline
 
 ---
 
 # 👤 Author
 
-**Your Name**
+**Kulin Mathur**
 
 GitHub:
-https://github.com/YOUR_USERNAME
+
+https://github.com/kulin-m
 
 ---
 
-### Built to keep data encrypted from upload to retrieval.
+### Secure • Encrypt • Store • Access
