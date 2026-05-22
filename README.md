@@ -14,7 +14,7 @@ Encrypt files locally • Upload securely • Download safely • Store privatel
 
 # 📖 Overview
 
-Secure Cloud 3.0 is an encrypted cloud storage platform built to ensure files remain protected before they ever leave the user’s device.
+Secure Cloud is an encrypted cloud storage platform built to ensure files remain protected before they ever leave the user’s device.
 
 Files are encrypted using **AES-GCM encryption** and uploaded as encrypted data into **Google Drive**.
 
