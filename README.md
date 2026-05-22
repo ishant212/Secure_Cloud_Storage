@@ -1,4 +1,4 @@
-# 🔐 Secure Cloud 3.0
+# 🔐 Secure Cloud 
 
 > End-to-End Encrypted Cloud Storage using FastAPI, React, Express, and Google Drive
 
