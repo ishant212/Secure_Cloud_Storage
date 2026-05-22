@@ -99,7 +99,7 @@ Google Drive
 
 ## Google Drive Storage
 
-![Drive](assets/drive.png)
+![Drive](assets/drive-storage.png)
 
 ---
 
