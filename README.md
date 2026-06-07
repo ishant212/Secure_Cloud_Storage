@@ -300,9 +300,9 @@ Use `.gitignore`.
 
 | Name | GitHub |
 |------|--------|
-| Kulin Mathur | [@kulin](https://github.com/kulin-m) |
-| Ishant Shekhar | [@ishant212](https://github.com/ishant212) |
-| Lakshya Kumar Singh | [@lakshya](https://github.com/X-ImLucky-X) |
+| Kulin Mathur | [@Kulin](https://github.com/kulin-m) |
+| Ishant Shekhar | [@Ishant](https://github.com/ishant212) |
+| Lakshya Kumar Singh | [@Lakshya](https://github.com/X-ImLucky-X) |
 
 
 ---
