@@ -239,16 +239,6 @@ npm run dev
 
 ---
 
-# 🌐 Local URLs
-
-| Service | URL |
-|---------|-----|
-| Frontend | http://localhost:5173 |
-| Proxy | http://localhost:3000 |
-| Backend | http://127.0.0.1:8000 |
-
----
-
 # 🔐 Encryption Workflow
 
 ```text
